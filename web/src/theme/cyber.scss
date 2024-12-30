@@ -1,0 +1,177 @@
+// 科技风格变量
+$cyber-primary: #00f3ff;
+$cyber-secondary: #0051ff;
+$cyber-accent: #ff00f7;
+$cyber-bg: rgba(16, 20, 31, 0.8);
+$cyber-border: rgba(0, 243, 255, 0.3);
+
+// 全局科技风格
+.cyber-theme {
+  // 背景和基础样式
+  background: linear-gradient(135deg, #0a0e17 0%, #1a1f2c 100%);
+  color: #fff;
+
+  // 导航栏样式
+  .layout-header {
+    background: $cyber-bg !important;
+    border-bottom: 1px solid $cyber-border;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba($cyber-primary, 0.1);
+
+    .header-logo {
+      border-right: 1px solid $cyber-border;
+      
+      .logo-text {
+        color: $cyber-primary;
+        text-shadow: 0 0 10px rgba($cyber-primary, 0.5);
+      }
+    }
+
+    .el-menu {
+      background: transparent !important;
+      border: none !important;
+
+      .el-menu-item {
+        color: rgba(255, 255, 255, 0.8) !important;
+        
+        &:hover, &.is-active {
+          color: $cyber-primary !important;
+          background: rgba($cyber-primary, 0.1) !important;
+          
+          &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: $cyber-primary;
+            box-shadow: 0 0 10px rgba($cyber-primary, 0.5);
+          }
+        }
+      }
+    }
+  }
+
+  // 侧边栏样式
+  .layout-aside {
+    background: $cyber-bg !important;
+    border-right: 1px solid $cyber-border;
+    backdrop-filter: blur(10px);
+
+    .el-menu {
+      background: transparent !important;
+      border: none !important;
+
+      .el-menu-item, .el-sub-menu__title {
+        color: rgba(255, 255, 255, 0.8) !important;
+        
+        &:hover, &.is-active {
+          color: $cyber-primary !important;
+          background: rgba($cyber-primary, 0.1) !important;
+        }
+
+        i {
+          color: rgba(255, 255, 255, 0.6) !important;
+        }
+      }
+    }
+  }
+
+  // 主内容区域样式
+  .layout-main {
+    background: transparent !important;
+
+    .cyber-card {
+      background: $cyber-bg;
+      border: 1px solid $cyber-border;
+      border-radius: 8px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba($cyber-primary, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 0 30px rgba($cyber-primary, 0.2);
+      }
+    }
+  }
+
+  // Tags 视图样式
+  .layout-tagsview {
+    background: $cyber-bg !important;
+    border-bottom: 1px solid $cyber-border;
+    backdrop-filter: blur(10px);
+
+    .tags-view {
+      .el-tabs__item {
+        color: rgba(255, 255, 255, 0.8) !important;
+        border: 1px solid rgba($cyber-primary, 0.2) !important;
+        background: rgba($cyber-primary, 0.05) !important;
+        margin: 0 4px;
+        border-radius: 4px;
+        
+        &:hover, &.is-active {
+          color: $cyber-primary !important;
+          background: rgba($cyber-primary, 0.1) !important;
+          border-color: $cyber-primary !important;
+          box-shadow: 0 0 10px rgba($cyber-primary, 0.2);
+        }
+      }
+    }
+  }
+
+  // 滚动条样式
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba($cyber-primary, 0.1);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba($cyber-primary, 0.3);
+    border-radius: 3px;
+    
+    &:hover {
+      background: rgba($cyber-primary, 0.5);
+    }
+  }
+
+  // 动画效果
+  @keyframes cyber-glow {
+    0% {
+      box-shadow: 0 0 10px rgba($cyber-primary, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba($cyber-primary, 0.5);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba($cyber-primary, 0.3);
+    }
+  }
+
+  @keyframes cyber-scan {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+}
+
+// 响应式调整
+@media screen and (max-width: 768px) {
+  .cyber-theme {
+    .layout-header, .layout-aside {
+      backdrop-filter: blur(5px);
+    }
+    
+    .cyber-card {
+      margin: 10px;
+    }
+  }
+} 
